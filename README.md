@@ -2,10 +2,10 @@
 
 <!---Esses são exemplos. Veja https://shields.io para outras pessoas ou para personalizar este conjunto de escudos. Você pode querer incluir dependências, status do projeto e informações de licença aqui--->
 
-![GitHub repo size](https://img.shields.io/github/repo-size/GuiGolfeto/Sistema-de-Cadastro-de-loja)
-![GitHub language count](https://img.shields.io/github/languages/count/GuiGolfeto/Sistema-de-Cadastro-de-loja)
+![GitHub repo size](https://img.shields.io/github/repo-size/GuiGolfeto/Sistema-de-Cadastro-de-loja?style=flat-square)
+![GitHub language count](https://img.shields.io/github/languages/count/GuiGolfeto/Sistema-de-Cadastro-de-loja?style=flat-square)
 ![GitHub language count](https://img.shields.io/website?down_color=lightgrey&down_message=offline&up_color=a&up_message=online&url=https://sistemacadastrolojas.herokuapp.com)
-![GitHub language count](https://img.shields.io/github/issues-pr-closed/GuiGolfeto/Sistema-de-Cadastro-de-loja?color=a)
+![GitHub language count](https://img.shields.io/github/issues-pr-closed/GuiGolfeto/Sistema-de-Cadastro-de-loja?style=flat-square)
 
 
 <img src="exemplo-image.png" alt="exemplo imagem">
@@ -21,7 +21,8 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [x] Pagina de gerenciamento de cadastros/fazer cadastro de adms e excluir usuario somente acesso para adms;
 - [x] Pagina para recuperação de senha;
 - [x] Cadastro de Lojas;
-- [x] Pagina de Produtos;
+- [x] Pagina de Lojas;
+- [ ] Pagina de Produtos;
 - [ ] Pagina de gerenciamento e cadastro de produtos;
 - [ ] Banco de dados em json para armazenar os produtos;
 - [ ] Layout da pagina de produtos;
