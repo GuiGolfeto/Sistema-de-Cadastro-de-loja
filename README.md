@@ -2,10 +2,10 @@
 
 <!---Esses são exemplos. Veja https://shields.io para outras pessoas ou para personalizar este conjunto de escudos. Você pode querer incluir dependências, status do projeto e informações de licença aqui--->
 
-![GitHub repo size](https://img.shields.io/github/repo-size/GuiGolfeto/Projeto-Final-PHP)
-![GitHub language count](https://img.shields.io/github/languages/count/GuiGolfeto/Projeto-Final-PHP)
-![GitHub language count](https://img.shields.io/website?down_color=lightgrey&down_message=offline&up_color=a&up_message=online&url=https%3A%2F%2Fthawing-brook-48271.herokuapp.com%2F)
-![GitHub language count](https://img.shields.io/github/issues-pr-closed/GuiGolfeto/Projeto-Final-PHP?color=a)
+![GitHub repo size](https://img.shields.io/github/repo-size/GuiGolfeto/Sistema-de-Cadastro-de-loja)
+![GitHub language count](https://img.shields.io/github/languages/count/GuiGolfeto/Sistema-de-Cadastro-de-loja)
+![GitHub language count](https://img.shields.io/website?down_color=lightgrey&down_message=offline&up_color=a&up_message=online&url=https://safe-meadow-79311.herokuapp.com/pages/home.php)
+![GitHub language count](https://img.shields.io/github/issues-pr-closed/GuiGolfeto/Sistema-de-Cadastro-de-loja?color=a)
 
 
 <img src="exemplo-image.png" alt="exemplo imagem">
