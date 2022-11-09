@@ -1,0 +1,8 @@
+{
+    "name": "composer/index.php",
+    "description": "projeto",
+    "type": "composer",
+    "license": "MIT",
+    "minimum-stability": "beta",
+    "require": {}
+}
