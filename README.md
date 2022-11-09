@@ -4,7 +4,6 @@
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/GuiGolfeto/Sistema-de-Cadastro-de-loja?style=flat-square)
 ![GitHub language count](https://img.shields.io/github/languages/count/GuiGolfeto/Sistema-de-Cadastro-de-loja?style=flat-square)
-![GitHub language count](https://img.shields.io/website?down_color=lightgrey&down_message=offline&up_color=a&up_message=online&url=https://sistemacadastrolojas.herokuapp.com)
 ![GitHub language count](https://img.shields.io/github/issues-pr-closed/GuiGolfeto/Sistema-de-Cadastro-de-loja?style=flat-square)
 
 
