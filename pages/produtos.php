@@ -11,10 +11,11 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produtos</title>
+    <title>Lojas</title>
 
     <link rel="stylesheet" type="text/css" href="../css/main.css">
     <link rel="stylesheet" href="../css/produtos/navbar.css">
+    <link rel="stylesheet" href="../css//produtos/cardLojas.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css" />
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -30,7 +31,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
         <input type="checkbox" id="nav-check">
         <div class="nav-header">
             <div class="nav-title">
-                Produtos
+                Lojas
             </div>
         </div>
         <div class="nav-btn">
@@ -56,16 +57,24 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 
 
     <div class="container">
-        <div class="container-login">
-            <div class="wrap-login">
-                <?php
-                if (file_exists("../server/produtos.json")) {
-                    echo "produto 1";
-                } else {
-                    echo "<span class='login-form-title'>Não há produtos cadastrados!</span>";
+        <div class="container-login" style="padding-bottom: 250px;">
+            <?php
+            if (file_exists("../server/lojas.json")) {
+                $arqLojas = '../server/lojas.json';
+                $arqLojas = file_get_contents($arqLojas);
+                $arqLojas = json_decode($arqLojas, true);
+
+                foreach ($arqLojas as $key => $value) {
+                    echo "<div class='card card-1'>";
+                    echo "<div class='card__icon'><i class='icon-shopping-cart'></i></div>";
+                    echo "<h2 class='card__title'>" . $value['nomeLoja'] . "</h2>";
+                    echo "<p class='card__apply'><a class='card__link' href='#'>Ver produtos<i class='fas fa-arrow-right'></i></a></p>";
+                    echo "</div>";
                 }
-                ?>
-            </div>
+            } else {
+                echo "<span class='login-form-title'>Não há lojas cadastrados!</span>";
+            }
+            ?>
         </div>
     </div>
 </body>
