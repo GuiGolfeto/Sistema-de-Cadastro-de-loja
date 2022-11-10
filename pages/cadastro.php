@@ -164,6 +164,7 @@ if (isset($_SESSION['emailIgual'])) {
 				}
 			</script>
 
+			
 			<script>
 				if (emailIgual == true) {
 					Swal.fire({
@@ -173,6 +174,7 @@ if (isset($_SESSION['emailIgual'])) {
 					});
 				}
 			</script>
+			
 
 			<!-- animação do form -->
 			<script>
@@ -187,6 +189,7 @@ if (isset($_SESSION['emailIgual'])) {
 					});
 				}
 			</script>
+
 </body>
 
 </html>

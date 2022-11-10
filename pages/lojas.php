@@ -31,7 +31,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
         <input type="checkbox" id="nav-check">
         <div class="nav-header">
             <div class="nav-title">
-                Lojas
+                <i class='icon-shopping-cart'></i> Lojas
             </div>
         </div>
         <div class="nav-btn">

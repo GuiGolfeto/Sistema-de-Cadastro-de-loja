@@ -42,7 +42,7 @@ if ($validationHome == true) {
     }
 
     if (isset($_POST['btnProdutos'])) {
-        header("Location: ./produtos.php");
+        header("Location: ./lojas.php");
     }
 
     if (isset($_POST['sair'])) {
