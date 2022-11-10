@@ -47,7 +47,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
             $nivel_necessarioADM = 1;
             $nivel_necessarioLojista = 3;
             if ($_SESSION['nivel'] == $nivel_necessarioADM || $_SESSION['nivel'] == $nivel_necessarioLojista) {
-                echo "<a href='#' target='_blank'>Cadastrar Produtos</a>";
+                echo "<a href='./gerenciaProdutos.php' target='_blank'>Cadastrar Produtos</a>";
             }
             echo "<a href='./home.php'>Voltar</a>";
             echo "<a href='./perfil.php'>" . $_SESSION['nome'] . " <i class='icon-user'></i></a>";
