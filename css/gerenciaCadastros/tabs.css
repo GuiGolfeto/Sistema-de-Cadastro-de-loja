@@ -1779,13 +1779,13 @@ a:hover {
 .pcss3t-theme-4>label {
     margin: 0 10px 10px 0;
     border-radius: 5px;
-    background: #78c5fd;
-    background: linear-gradient(to bottom, #78c5fd 0%, #2c8fdd 100%);
-    background: -o-linear-gradient(top, #78c5fd 0%, #2c8fdd 100%);
-    background: -ms-linear-gradient(top, #78c5fd 0%, #2c8fdd 100%);
-    background: -moz-linear-gradient(top, #78c5fd 0%, #2c8fdd 100%);
-    background: -webkit-linear-gradient(top, #78c5fd 0%, #2c8fdd 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#78c5fd', endColorstr='#2c8fdd', GradientType=0);
+    background: #1900ff;
+    background: linear-gradient(to bottom, #1900ff 0%, #2c8fdd 100%);
+    background: -o-linear-gradient(top, #1900ff 0%, #2c8fdd 100%);
+    background: -ms-linear-gradient(top, #1900ff 0%, #2c8fdd 100%);
+    background: -moz-linear-gradient(top, #1900ff 0%, #2c8fdd 100%);
+    background: -webkit-linear-gradient(top, #1900ff 0%, #2c8fdd 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1900ff', endColorstr='#1900ff', GradientType=0);
     box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), 0 1px rgba(0, 0, 0, 0.5);
     line-height: 39px;
     text-shadow: 0 1px rgba(0, 0, 0, 0.5);

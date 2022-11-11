@@ -6,24 +6,49 @@ if (isset($_POST['btnExcluir'])) {
 
     $emailExluir = filter_input(INPUT_POST, 'emailDelete');
 
-    if (file_exists("data.json")) {
-        $arquivo = 'data.json';
-        $data = file_get_contents($arquivo);
-        $data = json_decode($data, true);
+    if (file_exists("./data.json") || file_exists('./lojas.json')) {
+        $arqUsers = './data.json';
+        $arqUsers = file_get_contents($arqUsers);
+        $arqUsers = json_decode($arqUsers, true);
 
-        foreach($data as $key => $value){
-            if($emailExluir == $value['email']){
-                unset ($data[$key]);
+        $arqLojas = './lojas.json';
+        $arqLojas = file_get_contents($arqLojas);
+        $arqLojas = json_decode($arqLojas, true);
+
+        foreach ($arqUsers as $key => $value) {
+            if ($emailExluir == $value['email']) {
+                unset($arqUsers[$key]);
+                $validUser = true;
             }
         }
 
-        $json = json_encode($data);
-        if (file_put_contents("data.json", $json)) {
-            $_SESSION['exclusaoSuccess'] = true;
-            header("Refresh: 1, url=../pages/gerenciaCadastros.php");
-        } else {
-            $_SESSION['exclusaoErro'] = true;
-            header("Refresh: 1, url=../pages/gerenciaCadastros.php");
+        foreach ($arqLojas as $key => $value) {
+            if ($emailExluir == $value['emailGerente']) {
+                unset($arqLojas[$key]);
+                $validLoja = true;
+            }
+        }
+
+        if (isset($validUser)) {
+            $json = json_encode($arqUsers);
+            if (file_put_contents("data.json", $json)) {
+                $_SESSION['exclusaoSuccess'] = true;
+                header("Refresh: 1, url=../pages/gerenciaCadastros.php");
+            } else {
+                $_SESSION['exclusaoErro'] = true;
+                header("Refresh: 1, url=../pages/gerenciaCadastros.php");
+            }
+        }
+
+        if (isset($validLoja)) {
+            $json = json_encode($arqLojas);
+            if (file_put_contents("lojas.json", $json)) {
+                $_SESSION['exclusaoSuccess'] = true;
+                header("Refresh: 1, url=../pages/gerenciaCadastros.php");
+            } else {
+                $_SESSION['exclusaoErro'] = true;
+                header("Refresh: 1, url=../pages/gerenciaCadastros.php");
+            }
         }
     }
 }

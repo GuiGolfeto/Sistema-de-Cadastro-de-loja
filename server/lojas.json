@@ -1,1 +1,16 @@
-[{"nomeLoja":"Atleticana TDS","emailGerente":"altleticaTDS@gmail.com","passwd":"827ccb0eea8a706c4c34a16891f84e7b","nivel":"3","estado":"AC"},{"nomeLoja":"Atleticana Publicidade e Propaganda","emailGerente":"altleticaPP@gmail.com","passwd":"827ccb0eea8a706c4c34a16891f84e7b","nivel":"3","estado":"AC"},{"nomeLoja":"Americanas","emailGerente":"americanas@americanas.com","passwd":"827ccb0eea8a706c4c34a16891f84e7b","nivel":"3","estado":"MG"}]
+[
+    {
+        "nomeLoja": "Atleticana TDS",
+        "emailGerente": "altleticaTDS@gmail.com",
+        "passwd": "827ccb0eea8a706c4c34a16891f84e7b",
+        "nivel": "3",
+        "estado": "AC"
+    },
+    {
+        "nomeLoja": "Atleticana Publicidade e Propaganda",
+        "emailGerente": "altleticaPP@gmail.com",
+        "passwd": "827ccb0eea8a706c4c34a16891f84e7b",
+        "nivel": "3",
+        "estado": "AC"
+    }
+]

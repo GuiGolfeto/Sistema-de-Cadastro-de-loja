@@ -2,6 +2,13 @@
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
+
+if (isset($_SESSION['failSessionGerencia'])) {
+    if ($_SESSION['failSessionGerencia'] == true) {
+        echo "<script>var failSession = true</script>";
+        unset($_SESSION['failSessionGerencia']);
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -13,10 +20,11 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lojas</title>
 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" type="text/css" href="../css/main.css">
     <link rel="stylesheet" href="../css/produtos/navbar.css">
     <link rel="stylesheet" href="../css//produtos/cardLojas.css">
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css" />
+    
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="sweetalert2.all.min.js"></script>
@@ -44,10 +52,9 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 
         <div class="nav-links">
             <?php
-            $nivel_necessarioADM = 1;
             $nivel_necessarioLojista = 3;
-            if ($_SESSION['nivel'] == $nivel_necessarioADM || $_SESSION['nivel'] == $nivel_necessarioLojista) {
-                echo "<a href='./gerenciaProdutos.php' target='_blank'>Cadastrar Produtos</a>";
+            if ($_SESSION['nivel'] == $nivel_necessarioLojista) {
+                echo "<a href='./gerenciaProdutos.php'>Cadastrar Produtos</a>";
             }
             echo "<a href='./home.php'>Voltar</a>";
             echo "<a href='./perfil.php'>" . $_SESSION['nome'] . " <i class='icon-user'></i></a>";
@@ -77,6 +84,16 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
             ?>
         </div>
     </div>
+
+    <script>
+        if (failSession == true) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Você não tem acesso a esse setor!',
+            });
+        }
+    </script>
 </body>
 
 </html>

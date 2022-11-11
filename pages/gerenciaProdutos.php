@@ -2,6 +2,19 @@
 if (session_status() !== PHP_SESSION_ACTIVE) {
 	session_start();
 }
+
+$nivel_necessario = 3;
+
+if ($_SESSION['nivel'] != $nivel_necessario){
+	$_SESSION['failSessionGerencia'] = true;
+    header("Refresh: 1, url=./lojas.php");
+    exit;
+}
+
+if (isset($_POST['btnVoltar'])) {
+    header('Location: home.php');
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -41,6 +54,13 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 			<ul>
 				<li class="tab-content tab-content-first typography">
 					<h1>Produtos</h1>
+					<?php 
+					if(file_exists('../server/produtos.json')){
+						 echo 'produtao po';
+					} else {
+						echo '<h3>Ainda não há produtos cadastrados!</h3>';
+					}   
+					?>
 				</li>
 
 				<li class="tab-content tab-content-2 typography">

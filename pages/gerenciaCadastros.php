@@ -8,9 +8,13 @@ $nivel_necessario = 1;
 
 if ($_SESSION['nivel'] == $nivel_necessario) {
     //var_dump($_SESSION);
-    $arquivoJson = '../server/data.json';
-    $json = file_get_contents($arquivoJson);
-    $data = json_decode($json);
+    $arqUsers = '../server/data.json';
+    $arqUsers = file_get_contents($arqUsers);
+    $arqUsers = json_decode($arqUsers);
+
+    $arqLojas = '../server/lojas.json';
+    $arqLojas = file_get_contents($arqLojas);
+    $arqLojas = json_decode($arqLojas);
 } else {
     $_SESSION['failSessionGerencia'] = true;
     // Redireciona o visitante de volta pro login
@@ -105,19 +109,22 @@ if (isset($_POST['btnVoltar'])) {
             <label for="tab1"><i class="icon-group"></i><strong>Usuarios Cadastrados</strong></label>
 
             <input type="radio" name="pcss3t" id="tab2" class="tab-content-2">
-            <label for="tab2"><i class="icon-user"></i><strong>Cadastro de ADM's</strong></label>
+            <label for="tab2"><i class="icon-group"></i><strong>Lojas Cadastrados</strong></label>
 
             <input type="radio" name="pcss3t" id="tab3" class="tab-content-3">
-            <label for="tab3"><i class="icon-remove-sign"></i><strong>Excluir usuario</strong></label>
+            <label for="tab3"><i class="icon-user"></i><strong>Cadastrar ADM's</strong></label>
 
             <input type="radio" name="pcss3t" id="tab4" class="tab-content-4">
             <label for="tab4"><i class="icon-shopping-cart"></i><strong>Cadastrar Loja</strong></label>
+
+            <input type="radio" name="pcss3t" id="tab5" class="tab-content-5">
+            <label for="tab5"><i class="icon-remove-sign"></i><strong>Excluir Usuario/Loja</strong></label>
 
             <ul>
                 <li class="tab-content tab-content-first typography">
                     <h1>Usuarios</h1>
                     <?php
-                    foreach ($data as $key => $value) {
+                    foreach ($arqUsers as $key => $value) {
                         echo "<h3>Cadastro => " . $key . "</h3>";
                         echo "<br>";
                         foreach ($value as $dataValue => $a) {
@@ -129,7 +136,21 @@ if (isset($_POST['btnVoltar'])) {
                 </li>
 
                 <li class="tab-content tab-content-2 typography">
-                    <h1>Cadastro</h1>
+                    <h1>Lojas</h1>
+                    <?php
+                    foreach ($arqLojas as $key => $value) {
+                        echo "<h3>Cadastro => " . $key . "</h3>";
+                        echo "<br>";
+                        foreach ($value as $dataValue => $a) {
+                            echo "<strong>" . $dataValue . ": " . "</strong>" . $a;
+                            echo "<br>";
+                        }
+                    }
+                    ?>
+                </li>
+
+                <li class="tab-content tab-content-3 typography">
+                    <h1>Cadastrar ADM</h1>
                     <form class="login-form" action="../server/cadastroAdm.php" method="post" autocomplete="off">
                         <div class="wrap-input margin-top-35 margin-bottom-35">
                             <input class="input-form" type="text" name="nomeCompleto" id="nomeCompleto" autocomplete="off">
@@ -219,23 +240,8 @@ if (isset($_POST['btnVoltar'])) {
                     </form>
                 </li>
 
-                <li class="tab-content tab-content-3 typography">
-                    <h1>Excluir Usuario</h1>
-                    <form action="../server/excluirUser.php" method="post">
-                        <div class="wrap-input margin-top-35 margin-bottom-35">
-                            <input class="input-form" type="text" name="emailDelete" id="emailDelete" autocomplete="off">
-                            <span class="focus-input-form" data-placeholder="Email do usuario"></span>
-                        </div>
-                        <div class="container-login-form-btn">
-                            <button class="login-form-btn" id="btnExcluir" name="btnExcluir">
-                                Excluir
-                            </button>
-                        </div>
-                    </form>
-                </li>
-
                 <li class="tab-content tab-content-4 typography">
-                    <h1>Cadastro de lojas</h1>
+                    <h1>Cadastrar lojas</h1>
                     <form class="login-form" action="../server/cadastroLoja.php" method="post" autocomplete="off">
                         <div class="wrap-input margin-top-35 margin-bottom-35">
                             <input class="input-form" type="text" name="nomeLoja" id="nomeLoja" autocomplete="off">
@@ -297,6 +303,21 @@ if (isset($_POST['btnVoltar'])) {
                         <div class="container-login-form-btn">
                             <button class="login-form-btn" id="btnLoja" name="btnLoja">
                                 Cadastrar
+                            </button>
+                        </div>
+                    </form>
+                </li>
+
+                <li class="tab-content tab-content-5 typography">
+                    <h1>Excluir Usuario/Loja</h1>
+                    <form action="../server/excluirUser.php" method="post">
+                        <div class="wrap-input margin-top-35 margin-bottom-35">
+                            <input class="input-form" type="text" name="emailDelete" id="emailDelete" autocomplete="off">
+                            <span class="focus-input-form" data-placeholder="Email do usuario ou loja"></span>
+                        </div>
+                        <div class="container-login-form-btn">
+                            <button class="login-form-btn" id="btnExcluir" name="btnExcluir">
+                                Excluir
                             </button>
                         </div>
                     </form>
