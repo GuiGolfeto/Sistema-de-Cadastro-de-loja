@@ -19,7 +19,7 @@ if (isset($_SESSION['failSessionGerencia'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lojas</title>
+    <title>Produtos</title>
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="../css/main.css">
@@ -40,7 +40,7 @@ if (isset($_SESSION['failSessionGerencia'])) {
         <input type="checkbox" id="nav-check">
         <div class="nav-header">
             <div class="nav-title">
-                <i class='icon-shopping-cart'></i> Lojas
+                <i class='icon-shopping-cart'></i> Produtos
             </div>
         </div>
         <div class="nav-btn">
