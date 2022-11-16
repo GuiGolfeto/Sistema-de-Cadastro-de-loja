@@ -65,30 +65,37 @@ if (isset($_SESSION['failSessionGerencia'])) {
 
 
     <div class="container">
-        <div class="container-login" style="padding-bottom: 250px;">
-            <?php
-            if (file_exists("../server/produtos.json")) {
-                $arqProdutos = '../server/produtos.json';
-                $arqProdutos = file_get_contents($arqProdutos);
-                $arqProdutos = json_decode($arqProdutos, true);
-
-                foreach ($arqProdutos as $key => $value) {
-                    $imgSrc = $value['fotoProduto'];
-                    echo "<div class='card'>";
-                    echo "<div class='card-header'>";
-                    echo "<img src='" . $imgSrc . "' alt='rover' />";
-                    echo "</div>";
-                    echo "<div class='card-body'>";
-                    echo "<h4>" . $value['nomeProduto'] . "</h4>";
-                    echo "<p>" . $value['descricao'] . "</p>";
-                    echo "</div>";
-                    echo "</div>";
-                    echo "</div>";
-                }
-            } else {
-                echo "<span class='login-form-title'>Não há lojas cadastrados!</span>";
-            }
+        <span class="login-form-title" style="padding-left: 400px;">
+            <?php //echo $_SESSION['loja']; 
             ?>
+        </span>
+        <div class="container-login" style="padding-bottom: 250px;">
+            <div>
+                <?php
+                if (file_exists("../server/produtos.json")) {
+                    $arqProdutos = '../server/produtos.json';
+                    $arqProdutos = file_get_contents($arqProdutos);
+                    $arqProdutos = json_decode($arqProdutos, true);
+
+                    foreach ($arqProdutos as $key => $value) {
+                        $imgSrc = $value['fotoProduto'];
+                        echo "<div class='card'>";
+                        echo "<div class='card-header'>";
+                        echo "<img src='" . $imgSrc . "' alt='rover' />";
+                        echo "</div>";
+                        echo "<div class='card-body'>";
+                        echo "<h4>" . $value['nomeProduto'] . "</h4>";
+                        echo "<h4> Loja:" . $value['loja'] . "</h4>";
+                        echo "<p>" . $value['descricao'] . "</p>";
+                        echo "</div>";
+                        echo "</div>";
+                        echo "</div>";
+                    }
+                } else {
+                    echo "<span class='login-form-title'>Não há produtos cadastrados cadastrados!</span>";
+                }
+                ?>
+            </div>
         </div>
     </div>
 

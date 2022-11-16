@@ -93,13 +93,19 @@ if (isset($_POST['btnVoltar'])) {
 					if (file_exists('../server/produtos.json')) {
 						$arqProdutos = '../server/produtos.json';
 						$arqProdutos = file_get_contents($arqProdutos);
-						$arqProdutos = json_decode($arqProdutos);
+						$arqProdutos = json_decode($arqProdutos, true);
+						
 						foreach ($arqProdutos as $key => $value) {
-							echo "<h3>Cadastro => " . $key . "</h3>";
-							echo "<br>";
-							foreach ($value as $dataValue => $a) {
-								echo "<strong>" . $dataValue . ": " . "</strong>" . $a;
+							if ($_SESSION['nome'] == $value['loja']) {
+								$validateLoop = true;
+								echo "<h3>Cadastro => " . $key . "</h3>";
 								echo "<br>";
+								foreach ($value as $dataValue => $a) {
+									echo "<strong>" . $dataValue . ": " . "</strong>" . $a;
+									echo "<br>";
+								}
+							} else if (isset($validateLoop)) {
+								echo "<h3>Ainda não há produtos cadastrados</h3>";
 							}
 						}
 					} else {

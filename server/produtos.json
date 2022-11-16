@@ -3,7 +3,14 @@
         "nomeProduto": "Nike Dunk",
         "preco": "200",
         "descricao": "Melhor de todos os t\u00eanis",
-        "fotoProduto": "https://cf.shopee.com.br/file/572dd8db6348691d86e6b35b397b6278",
+        "fotoProduto": "https:\/\/cf.shopee.com.br\/file\/572dd8db6348691d86e6b35b397b6278",
         "loja": "Atleticana TDS"
+    },
+    {
+        "nomeProduto": "Suflair",
+        "preco": "8.99",
+        "descricao": "O melhor doce de todos",
+        "fotoProduto": "https:\/\/cf.shopee.com.br\/file\/572dd8db6348691d86e6b35b397b6278",
+        "loja": "Americanas"
     }
 ]

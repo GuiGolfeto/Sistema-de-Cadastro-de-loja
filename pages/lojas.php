@@ -9,6 +9,11 @@ if (isset($_SESSION['failSessionGerencia'])) {
         unset($_SESSION['failSessionGerencia']);
     }
 }
+
+if(isset($_POST['btnProd'])){
+    header("Location: ./produtos.php");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -76,7 +81,7 @@ if (isset($_SESSION['failSessionGerencia'])) {
                     echo "<div class='card card-1'>";
                     echo "<div class='card__icon'><i class='icon-shopping-cart'></i></div>";
                     echo "<h2 class='card__title'>" . $nomeLoja . "</h2>";
-                    echo "<p class='card__apply'><a class='card__link' href='./produtos.php'>Ver produtos<i class='fas fa-arrow-right'></i></a></p>";
+                    echo "<p class='card__apply'><form class='login-form' method='post' style='padding-top: 115px;'><button class='login-form-btn' name='btnProd' id='btnProd'>Ver produtos</button></form></p>";
                     echo "</div>";
                 }
             } else {
