@@ -5,14 +5,49 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 
 $nivel_necessario = 3;
 
-if ($_SESSION['nivel'] != $nivel_necessario){
+if ($_SESSION['nivel'] != $nivel_necessario) {
 	$_SESSION['failSessionGerencia'] = true;
-    header("Refresh: 1, url=./lojas.php");
-    exit;
+	header("Refresh: 1, url=./lojas.php");
+	exit;
 }
 
+
+
+// Produto success
+if (isset($_SESSION['cadastroProdutoSuccess'])) {
+	if ($_SESSION['cadastroProdutoSuccess'] == true) {
+		echo "<script>var cadastroProdutoSuccess = true</script>";
+		unset($_SESSION['cadastroProdutoSuccess']);
+	}
+}
+
+// Produto error
+if (isset($_SESSION['CadastroProdutoError'])) {
+	if ($_SESSION['CadastroProdutoError'] == true) {
+		echo "<script>var CadastroProdutoError = true</script>";
+		unset($_SESSION['CadastroProdutoError']);
+	}
+}
+
+// exlusão success
+if (isset($_SESSION['exclusaoSuccess'])) {
+	if ($_SESSION['exclusaoSuccess'] == true) {
+		echo "<script>var exclusaoSuccess = true</script>";
+		unset($_SESSION['exclusaoSuccess']);
+	}
+}
+
+// exlusão error
+if (isset($_SESSION['exclusaoErro'])) {
+	if ($_SESSION['exclusaoErro'] == true) {
+		echo "<script>var exclusaoErro = true</script>";
+		unset($_SESSION['exclusaoErro']);
+	}
+}
+
+
 if (isset($_POST['btnVoltar'])) {
-    header('Location: home.php');
+	header('Location: lojas.php');
 }
 
 ?>
@@ -54,18 +89,28 @@ if (isset($_POST['btnVoltar'])) {
 			<ul>
 				<li class="tab-content tab-content-first typography">
 					<h1>Produtos</h1>
-					<?php 
-					if(file_exists('../server/produtos.json')){
-						 echo 'produtao po';
+					<?php
+					if (file_exists('../server/produtos.json')) {
+						$arqProdutos = '../server/produtos.json';
+						$arqProdutos = file_get_contents($arqProdutos);
+						$arqProdutos = json_decode($arqProdutos);
+						foreach ($arqProdutos as $key => $value) {
+							echo "<h3>Cadastro => " . $key . "</h3>";
+							echo "<br>";
+							foreach ($value as $dataValue => $a) {
+								echo "<strong>" . $dataValue . ": " . "</strong>" . $a;
+								echo "<br>";
+							}
+						}
 					} else {
 						echo '<h3>Ainda não há produtos cadastrados!</h3>';
-					}   
+					}
 					?>
 				</li>
 
 				<li class="tab-content tab-content-2 typography">
 					<h1>Cadastro de Produto</h1>
-					<form class="login-form" action="../server/cadastroProduto.php" method="post" autocomplete="off">
+					<form class="login-form" action="../server/cadastroProdutos.php" method="post" autocomplete="off" enctype=”multipart/form-data”>
 						<div class="wrap-input margin-top-35 margin-bottom-35">
 							<input class="input-form" type="text" name="nomeProduto" id="nomeProduto" autocomplete="off">
 							<span class="focus-input-form" data-placeholder="Nome do produto"></span>
@@ -81,10 +126,12 @@ if (isset($_POST['btnVoltar'])) {
 							<span class="focus-input-form" data-placeholder="Descrição do produto"></span>
 						</div>
 
-						<div class="margin-top-35 margin-bottom-35">
-							<label class="text1" data-placeholder="Foto do produto" style="font-size: 20px;">Foto do produto</label>
-							<input class="input-form" type="file" name="fotoProduto" id="fotoProduto" autocomplete="off">
+						<div class="wrap-input margin-top-35 margin-bottom-35">
+							<input class="input-form" type="text" name="fotoProduto" id="fotoProduto" autocomplete="off">
+							<span class="focus-input-form" data-placeholder="Link da foto do produto"></span>
 						</div>
+
+						<input hidden="" type="text" name="loja" id="loja" value="<?php echo $_SESSION['nome']; ?>">
 
 						<div class="container-login-form-btn">
 							<button class="login-form-btn" id="btn" name="btn">
@@ -96,10 +143,10 @@ if (isset($_POST['btnVoltar'])) {
 
 				<li class="tab-content tab-content-3 typography">
 					<h1>Excluir Produto</h1>
-					<form action="../server/excluirUser.php" method="post">
+					<form action="../server/excluirProduto.php" method="post">
 						<div class="wrap-input margin-top-35 margin-bottom-35">
-							<input class="input-form" type="text" name="emailDelete" id="emailDelete" autocomplete="off">
-							<span class="focus-input-form" data-placeholder="Email do usuario"></span>
+							<input class="input-form" type="text" name="nomeProdutoDelete" id="nomeProdutoDelete" autocomplete="off">
+							<span class="focus-input-form" data-placeholder="Nome do produto"></span>
 						</div>
 						<div class="container-login-form-btn">
 							<button class="login-form-btn" id="btnExcluir" name="btnExcluir">
@@ -119,6 +166,46 @@ if (isset($_POST['btnVoltar'])) {
 		</form>
 		<!--/ tabs -->
 	</div>
+
+	<!-- Script cadastro loja erro -->
+	<script>
+		if (CadastroProdutoError == true) {
+			Swal.fire({
+				icon: 'error',
+				title: 'Oops...',
+				text: 'Não foi possivel realizar o cadastro, por favor tente novamente!',
+			});
+		}
+	</script>
+
+	<!-- Script cadastro loja erro -->
+	<script>
+		if (cadastroProdutoSuccess == true) {
+			Swal.fire({
+				icon: 'success',
+				title: 'Cadastro realizado com sucesso!',
+			});
+		}
+	</script>
+
+	<script>
+		if (exclusaoSuccess == true) {
+			Swal.fire({
+				icon: 'success',
+				title: 'Produto excluido com sucesso!',
+			});
+		}
+	</script>
+
+	<script>
+		if (exclusaoErro == true) {
+			Swal.fire({
+				icon: 'error',
+				title: 'Oops...',
+				text: 'Não foi possivel excluir o produto!',
+			});
+		}
+	</script>
 
 
 	<script>

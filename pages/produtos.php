@@ -9,6 +9,7 @@ if (isset($_SESSION['failSessionGerencia'])) {
         unset($_SESSION['failSessionGerencia']);
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -20,11 +21,11 @@ if (isset($_SESSION['failSessionGerencia'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lojas</title>
 
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css" />
     <link rel="stylesheet" type="text/css" href="../css/main.css">
     <link rel="stylesheet" href="../css/produtos/navbar.css">
-    <link rel="stylesheet" href="../css//produtos/cardLojas.css">
-    
+    <link rel="stylesheet" href="../css//produtos/cardProdutos.css">
+
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="sweetalert2.all.min.js"></script>
@@ -66,17 +67,22 @@ if (isset($_SESSION['failSessionGerencia'])) {
     <div class="container">
         <div class="container-login" style="padding-bottom: 250px;">
             <?php
-            if (file_exists("../server/lojas.json")) {
-                $arqLojas = '../server/lojas.json';
-                $arqLojas = file_get_contents($arqLojas);
-                $arqLojas = json_decode($arqLojas, true);
+            if (file_exists("../server/produtos.json")) {
+                $arqProdutos = '../server/produtos.json';
+                $arqProdutos = file_get_contents($arqProdutos);
+                $arqProdutos = json_decode($arqProdutos, true);
 
-                foreach ($arqLojas as $key => $value) {
-                    $nomeLoja = $value['nomeLoja'];
-                    echo "<div class='card card-1'>";
-                    echo "<div class='card__icon'><i class='icon-shopping-cart'></i></div>";
-                    echo "<h2 class='card__title'>" . $nomeLoja . "</h2>";
-                    echo "<p class='card__apply'><a class='card__link' value='". $_SESSION['nomeLoja'] = $value['nomeLoja'] ."' href='./produtos.php'>Ver produtos<i class='fas fa-arrow-right'></i></a></p>";
+                foreach ($arqProdutos as $key => $value) {
+                    $imgSrc = $value['fotoProduto'];
+                    echo "<div class='card'>";
+                    echo "<div class='card-header'>";
+                    echo "<img src='" . $imgSrc . "' alt='rover' />";
+                    echo "</div>";
+                    echo "<div class='card-body'>";
+                    echo "<h4>" . $value['nomeProduto'] . "</h4>";
+                    echo "<p>" . $value['descricao'] . "</p>";
+                    echo "</div>";
+                    echo "</div>";
                     echo "</div>";
                 }
             } else {

@@ -46,6 +46,14 @@ if (isset($_SESSION['exclusaoSuccess'])) {
     }
 }
 
+// exlusão error
+if (isset($_SESSION['exclusaoErro'])) {
+    if ($_SESSION['exclusaoErro'] == true) {
+        echo "<script>var exclusaoErro = true</script>";
+        unset($_SESSION['exclusaoErro']);
+    }
+}
+
 // erro email igual
 if (isset($_SESSION['emailIgual'])) {
     if ($_SESSION['emailIgual'] == true) {
@@ -363,6 +371,16 @@ if (isset($_POST['btnVoltar'])) {
             Swal.fire({
                 icon: 'success',
                 title: 'Usuario excluido com sucesso!',
+            });
+        }
+    </script>
+
+    <script>
+        if (exclusaoErro == true) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Não foi possivel excluir o usuario!',
             });
         }
     </script>
