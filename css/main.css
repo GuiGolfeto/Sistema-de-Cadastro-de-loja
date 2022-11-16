@@ -306,5 +306,5 @@ a:focus {
 
 a:hover {
   text-decoration: none;
-  color: var(--highligth-text);
+  color: var(--white-color);
 }

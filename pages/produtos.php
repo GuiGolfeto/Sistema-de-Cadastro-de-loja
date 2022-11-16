@@ -57,7 +57,7 @@ if (isset($_SESSION['failSessionGerencia'])) {
             if ($_SESSION['nivel'] == $nivel_necessarioLojista) {
                 echo "<a href='./gerenciaProdutos.php'>Cadastrar Produtos</a>";
             }
-            echo "<a href='./home.php'>Voltar</a>";
+            echo "<a href='./lojas.php'>Voltar</a>";
             echo "<a href='./perfil.php'>" . $_SESSION['nome'] . " <i class='icon-user'></i></a>";
             ?>
         </div>

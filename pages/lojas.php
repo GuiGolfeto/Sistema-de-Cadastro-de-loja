@@ -21,9 +21,9 @@ if (isset($_SESSION['failSessionGerencia'])) {
     <title>Lojas</title>
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../css//produtos/cardLojas.css">
     <link rel="stylesheet" type="text/css" href="../css/main.css">
     <link rel="stylesheet" href="../css/produtos/navbar.css">
-    <link rel="stylesheet" href="../css//produtos/cardLojas.css">
     
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -76,7 +76,7 @@ if (isset($_SESSION['failSessionGerencia'])) {
                     echo "<div class='card card-1'>";
                     echo "<div class='card__icon'><i class='icon-shopping-cart'></i></div>";
                     echo "<h2 class='card__title'>" . $nomeLoja . "</h2>";
-                    echo "<p class='card__apply'><a class='card__link' value='". $_SESSION['nomeLoja'] = $value['nomeLoja'] ."' href='./produtos.php'>Ver produtos<i class='fas fa-arrow-right'></i></a></p>";
+                    echo "<p class='card__apply'><a class='card__link' href='./produtos.php'>Ver produtos<i class='fas fa-arrow-right'></i></a></p>";
                     echo "</div>";
                 }
             } else {
