@@ -82,7 +82,7 @@ a:hover {
 
 .page {
     position: relative;
-    max-width: 100vh;
+    max-width: 980px;
     margin: 0 auto;
     padding: 0 20px 40px;
 }
@@ -90,7 +90,6 @@ a:hover {
 /**/
 /* main styles */
 /**/
-
 .pcss3t {
     margin: 0;
     padding: 0;
@@ -190,13 +189,13 @@ a:hover {
 /* auto height */
 /**/
 .pcss3t-height-auto>ul {
-    height: 100% !important;
+    height: auto !important;
 }
 
 .pcss3t-height-auto>ul>li {
     position: static;
     display: none;
-    height: 100% !important;
+    height: auto !important;
 }
 
 .pcss3t-height-auto>.tab-content-first:checked~ul .tab-content-first,
@@ -1612,6 +1611,34 @@ a:hover {
 /*----------------------------------------------------------------------------*/
 
 /**/
+/* default */
+/**/
+.pcss3t>label {
+    padding: 0 20px;
+    background: #e5e5e5;
+    font-size: 13px;
+    line-height: 49px;
+}
+
+.pcss3t>label:hover {
+    background: #f2f2f2;
+}
+
+.pcss3t>input:checked+label {
+    background: #fff;
+}
+
+.pcss3t>ul {
+    background: #fff;
+    text-align: left;
+}
+
+.pcss3t-steps>label:hover {
+    background: #e5e5e5;
+}
+
+
+/**/
 /* theme 2 */
 /**/
 .pcss3t-theme-2 {
@@ -1643,7 +1670,7 @@ a:hover {
     background: -webkit-linear-gradient(top, #e5e5e5 0%, #ffffff 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e5e5e5', endColorstr='#ffffff', GradientType=0);
     text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
-    color: #45008a;
+    color: #822bd9;
 }
 
 .pcss3t-theme-2>ul {
@@ -1657,6 +1684,7 @@ a:hover {
         margin-top: 5px;
     }
 }
+
 
 /*----------------------------------------------------------------------------*/
 /*                               CUSTOMIZATION                                */

@@ -92,9 +92,9 @@ if (isset($_POST['btnVoltar'])) {
 
     <script src="../src/scripts/verificação/index.js" defer type="module"></script>
 
-    <link rel="stylesheet" href="../css/gerenciaCadastros/tabs.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/gerenciaCadastros/tabs.css">
 
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -109,7 +109,7 @@ if (isset($_POST['btnVoltar'])) {
     <div class="page">
         <h1>Gerenciamento de Usuarios</h1>
         <!-- tabs -->
-        <div class="pcss3t pcss3t-effect-scale pcss3t-theme-2 height-tabs">
+        <div class="pcss3t pcss3t-effect-scale pcss3t-theme-2">
             <input type="radio" name="pcss3t" checked id="tab1" class="tab-content-first">
             <label for="tab1"><i class="icon-group"></i><strong>Usuarios Cadastrados</strong></label>
 
