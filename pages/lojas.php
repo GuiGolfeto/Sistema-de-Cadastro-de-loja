@@ -9,11 +9,6 @@ if (isset($_SESSION['failSessionGerencia'])) {
         unset($_SESSION['failSessionGerencia']);
     }
 }
-
-if(isset($_POST['btnProd'])){
-    header("Location: ./produtos.php");
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -25,11 +20,11 @@ if(isset($_POST['btnProd'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lojas</title>
 
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="../css//produtos/cardLojas.css">
     <link rel="stylesheet" type="text/css" href="../css/main.css">
     <link rel="stylesheet" href="../css/produtos/navbar.css">
-    
+
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="sweetalert2.all.min.js"></script>
@@ -69,7 +64,7 @@ if(isset($_POST['btnProd'])){
 
 
     <div class="container">
-        <div class="container-login" style="padding-bottom: 250px;">
+        <div class="container-login" style="padding-bottom: 360px;">
             <?php
             if (file_exists("../server/lojas.json")) {
                 $arqLojas = '../server/lojas.json';
@@ -84,6 +79,10 @@ if(isset($_POST['btnProd'])){
                     echo "<p class='card__apply'><form class='login-form' method='post' style='padding-top: 115px;'><button class='login-form-btn' name='btnProd' id='btnProd'>Ver produtos</button></form></p>";
                     echo "</div>";
                 }
+                if (isset($_POST['btnProd'])) {
+                    $_SESSION['nomeDaLoja'] = $nomeLoja;
+                    header("Refresh: 1, url=./produtos.php");
+                }
             } else {
                 echo "<span class='login-form-title'>Não há lojas cadastrados!</span>";
             }
@@ -91,6 +90,7 @@ if(isset($_POST['btnProd'])){
         </div>
     </div>
 
+    <!-- Alerta começo -->
     <script>
         if (failSession == true) {
             Swal.fire({
@@ -100,6 +100,7 @@ if(isset($_POST['btnProd'])){
             });
         }
     </script>
+    <!-- Alerta fim -->
 </body>
 
 </html>

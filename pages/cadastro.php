@@ -2,6 +2,7 @@
 if (session_status() !== PHP_SESSION_ACTIVE) {
 	session_start();
 }
+
 // erro cadastro
 if (isset($_SESSION['cadastroErro'])) {
 	if ($_SESSION['cadastroErro'] == true) {
@@ -147,13 +148,12 @@ if (isset($_SESSION['emailIgual'])) {
 			</div>
 			<img src="../images/cadastro.png" width="300" height="300" class="margin-left-50" />
 
-
-
+			<!-- Esconde escolha de nivel -->
 			<script>
 				document.getElementById('nivel').style.display = 'none'
 			</script>
 
-			<!-- Script para se der erro de campo incorreto -->
+			<!-- Alertas começo -->
 			<script>
 				if (cadastroErro == true) {
 					Swal.fire({
@@ -163,8 +163,6 @@ if (isset($_SESSION['emailIgual'])) {
 					});
 				}
 			</script>
-
-			
 			<script>
 				if (emailIgual == true) {
 					Swal.fire({
@@ -174,21 +172,10 @@ if (isset($_SESSION['emailIgual'])) {
 					});
 				}
 			</script>
-			
+			<!-- Alertas fim -->
 
 			<!-- animação do form -->
-			<script>
-				let inputs = document.getElementsByClassName('input-form');
-				for (let input of inputs) {
-					input.addEventListener("blur", function() {
-						if (input.value.trim() != "") {
-							input.classList.add("has-val");
-						} else {
-							input.classList.remove("has-val");
-						}
-					});
-				}
-			</script>
+			<script src="../src/scripts/formularios/animation.js"></script>
 
 </body>
 

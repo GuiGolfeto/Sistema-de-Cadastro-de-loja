@@ -4,53 +4,55 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
 
+if (file_exists('../server/data.json') || file_exists('../server/lojas.json')) {
 
-$arqUsers = '../server/data.json';
-$arqUsers = file_get_contents($arqUsers);
-$arqUsers = json_decode($arqUsers);
+    // pega o arquivo json dos usuarios
+    $arqUsers = '../server/data.json';
+    $arqUsers = file_get_contents($arqUsers);
+    $arqUsers = json_decode($arqUsers);
 
-$arqLojas = '../server/lojas.json';
-$arqLojas = file_get_contents($arqLojas);
-$arqLojas = json_decode($arqLojas);
+    // pega o arquivo json dos lojistas
+    $arqLojas = '../server/lojas.json';
+    $arqLojas = file_get_contents($arqLojas);
+    $arqLojas = json_decode($arqLojas);
 
-for ($i = 0; $i < count($arqUsers); $i++) {
-    if ($_SESSION['email'] === $arqUsers[$i]->email && $_SESSION['senha'] === $arqUsers[$i]->passwd) {
-        $validationHome = true;
-    }
-}
-
-for ($i = 0; $i < count($arqLojas); $i++) {
-    if ($_SESSION['email'] === $arqLojas[$i]->emailGerente && $_SESSION['senha'] === $arqLojas[$i]->passwd) {
-        $validationHome = true;
-    }
-}
-
-if ($validationHome == true) {
-    if (isset($_POST['btnPerfil'])) {
-        header("Location: perfil.php");
-    }
-
-    if (isset($_POST['btnGerenciaCadastros'])) {
-        header("Location: ./gerenciaCadastros.php");
-    }
-
-    if (isset($_SESSION['failSessionGerencia'])) {
-        if ($_SESSION['failSessionGerencia'] == true) {
-            echo "<script>var failSession = true</script>";
-            unset($_SESSION['failSessionGerencia']);
+    for ($i = 0; $i < count($arqUsers); $i++) {
+        if ($_SESSION['email'] === $arqUsers[$i]->email && $_SESSION['senha'] === $arqUsers[$i]->passwd) {
+            $validationHome = true;
         }
     }
 
-    if (isset($_POST['btnProdutos'])) {
-        header("Location: ./lojas.php");
+    for ($i = 0; $i < count($arqLojas); $i++) {
+        if ($_SESSION['email'] === $arqLojas[$i]->emailGerente && $_SESSION['senha'] === $arqLojas[$i]->passwd) {
+            $validationHome = true;
+        }
     }
 
-    if (isset($_POST['sair'])) {
-        // Destrói a sessão por segurança
-        session_destroy();
-        // Redireciona o visitante de volta pro login
-        header("Location: ../index.php");
-        exit;
+    if ($validationHome == true) {
+        if (isset($_POST['btnPerfil'])) {
+            header("Location: perfil.php");
+        }
+
+        if (isset($_POST['btnGerenciaCadastros'])) {
+            header("Location: ./gerenciaCadastros.php");
+        }
+
+        if (isset($_SESSION['failSessionGerencia'])) {
+            if ($_SESSION['failSessionGerencia'] == true) {
+                echo "<script>var failSession = true</script>";
+                unset($_SESSION['failSessionGerencia']);
+            }
+        }
+
+        if (isset($_POST['btnProdutos'])) {
+            header("Location: ./lojas.php");
+        }
+
+        if (isset($_POST['sair'])) {
+            session_destroy();
+            header("Location: ../index.php");
+            exit;
+        }
     }
 }
 
@@ -111,6 +113,7 @@ if ($validationHome == true) {
         </div>
     </div>
 
+    <!-- Alerta começo -->
     <script>
         if (failSession == true) {
             Swal.fire({
@@ -120,6 +123,7 @@ if ($validationHome == true) {
             });
         }
     </script>
+    <!-- Alerta fim -->
 </body>
 
 </html>

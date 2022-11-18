@@ -104,7 +104,7 @@ if (isset($_SESSION['senhaAttSuccess'])) {
 		</div>
 	</div>
 
-	<!-- Script cadastro success -->
+	<!-- Alertas começo -->
 	<script>
 		if (cadastroSuccess == true) {
 			Swal.fire({
@@ -113,8 +113,6 @@ if (isset($_SESSION['senhaAttSuccess'])) {
 			});
 		}
 	</script>
-
-	<!-- Script para se der erro de campo incorreto -->
 	<script>
 		if (campoIncorreto == true) {
 			Swal.fire({
@@ -124,8 +122,6 @@ if (isset($_SESSION['senhaAttSuccess'])) {
 			});
 		}
 	</script>
-
-	<!-- Script para se der erro de DataBase -->
 	<script>
 		if (noData == true) {
 			Swal.fire({
@@ -136,8 +132,6 @@ if (isset($_SESSION['senhaAttSuccess'])) {
 			});
 		}
 	</script>
-
-	<!-- senha alterada success -->
 	<script>
 		if (senhaAttSuccess == true) {
 			Swal.fire({
@@ -146,22 +140,11 @@ if (isset($_SESSION['senhaAttSuccess'])) {
 			});
 		}
 	</script>
-
+	<!-- Alertas fim -->
 
 
 	<!-- animação do form -->
-	<script>
-		let inputs = document.getElementsByClassName('input-form');
-		for (let input of inputs) {
-			input.addEventListener("blur", function() {
-				if (input.value.trim() != "") {
-					input.classList.add("has-val");
-				} else {
-					input.classList.remove("has-val");
-				}
-			});
-		}
-	</script>
+	<script src="./src/scripts/formularios/animation.js"></script>
 
 </body>
 

@@ -1,5 +1,4 @@
 <?php
-// A sessão precisa ser iniciada em cada página diferente
 if (session_status() !== PHP_SESSION_ACTIVE) {
     session_start();
 }
@@ -7,17 +6,17 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 $nivel_necessario = 1;
 
 if ($_SESSION['nivel'] == $nivel_necessario) {
-    //var_dump($_SESSION);
+    // pega o arquivo json dos usuarios
     $arqUsers = '../server/data.json';
     $arqUsers = file_get_contents($arqUsers);
     $arqUsers = json_decode($arqUsers);
 
+    // pega o arquivo json dos lojistas
     $arqLojas = '../server/lojas.json';
     $arqLojas = file_get_contents($arqLojas);
     $arqLojas = json_decode($arqLojas);
 } else {
     $_SESSION['failSessionGerencia'] = true;
-    // Redireciona o visitante de volta pro login
     header("Refresh: 1, url=./home.php");
     exit;
 }
@@ -93,8 +92,8 @@ if (isset($_POST['btnVoltar'])) {
 
     <script src="../src/scripts/verificação/index.js" defer type="module"></script>
 
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="../css/gerenciaCadastros/tabs.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="../css/main.css">
 
 
@@ -109,10 +108,8 @@ if (isset($_POST['btnVoltar'])) {
 <body>
     <div class="page">
         <h1>Gerenciamento de Usuarios</h1>
-
-
         <!-- tabs -->
-        <div class="pcss3t pcss3t-effect-scale pcss3t-theme-1">
+        <div class="pcss3t pcss3t-effect-scale pcss3t-theme-2 height-tabs">
             <input type="radio" name="pcss3t" checked id="tab1" class="tab-content-first">
             <label for="tab1"><i class="icon-group"></i><strong>Usuarios Cadastrados</strong></label>
 
@@ -132,13 +129,17 @@ if (isset($_POST['btnVoltar'])) {
                 <li class="tab-content tab-content-first typography">
                     <h1>Usuarios</h1>
                     <?php
-                    foreach ($arqUsers as $key => $value) {
-                        echo "<h3>Cadastro => " . $key . "</h3>";
-                        echo "<br>";
-                        foreach ($value as $dataValue => $a) {
-                            echo "<strong>" . $dataValue . ": " . "</strong>" . $a;
+                    if (file_exists('../server/data.json')) {
+                        foreach ($arqUsers as $key => $value) {
+                            echo "<h3>Cadastro => " . $key . "</h3>";
                             echo "<br>";
+                            foreach ($value as $dataValue => $a) {
+                                echo "<strong>" . $dataValue . ": " . "</strong>" . $a;
+                                echo "<br>";
+                            }
                         }
+                    } else {
+                        echo "<h3> Não há usuarios cadastrados!</h3>";
                     }
                     ?>
                 </li>
@@ -146,13 +147,17 @@ if (isset($_POST['btnVoltar'])) {
                 <li class="tab-content tab-content-2 typography">
                     <h1>Lojas</h1>
                     <?php
-                    foreach ($arqLojas as $key => $value) {
-                        echo "<h3>Cadastro => " . $key . "</h3>";
-                        echo "<br>";
-                        foreach ($value as $dataValue => $a) {
-                            echo "<strong>" . $dataValue . ": " . "</strong>" . $a;
+                    if (file_exists('../server/lojas.json')) {
+                        foreach ($arqLojas as $key => $value) {
+                            echo "<h3>Cadastro => " . $key . "</h3>";
                             echo "<br>";
+                            foreach ($value as $dataValue => $a) {
+                                echo "<strong>" . $dataValue . ": " . "</strong>" . $a;
+                                echo "<br>";
+                            }
                         }
+                    } else {
+                        echo "<h3> Não há lojas cadastrados!</h3>";
                     }
                     ?>
                 </li>
@@ -342,11 +347,13 @@ if (isset($_POST['btnVoltar'])) {
         <!--/ tabs -->
     </div>
 
+    <!-- Oculta uma div -->
     <script>
         document.getElementById('ocultar').style.display = 'none'
     </script>
 
-    <!-- Script cadastro success -->
+
+    <!-- Alertas começo -->
     <script>
         if (cadastroAdmSuccess == true) {
             Swal.fire({
@@ -355,8 +362,6 @@ if (isset($_POST['btnVoltar'])) {
             });
         }
     </script>
-
-    <!-- Script cadastro loja success -->
     <script>
         if (cadastroLojaSuccess == true) {
             Swal.fire({
@@ -365,7 +370,6 @@ if (isset($_POST['btnVoltar'])) {
             });
         }
     </script>
-
     <script>
         if (exclusaoSuccess == true) {
             Swal.fire({
@@ -374,7 +378,6 @@ if (isset($_POST['btnVoltar'])) {
             });
         }
     </script>
-
     <script>
         if (exclusaoErro == true) {
             Swal.fire({
@@ -384,8 +387,6 @@ if (isset($_POST['btnVoltar'])) {
             });
         }
     </script>
-
-    <!-- Script cadastro erro -->
     <script>
         if (cadastroAdmErro == true) {
             Swal.fire({
@@ -395,8 +396,6 @@ if (isset($_POST['btnVoltar'])) {
             });
         }
     </script>
-
-    <!-- Script cadastro loja erro -->
     <script>
         if (CadastroLojaError == true) {
             Swal.fire({
@@ -406,7 +405,6 @@ if (isset($_POST['btnVoltar'])) {
             });
         }
     </script>
-
     <script>
         if (emailIgual == true) {
             Swal.fire({
@@ -416,19 +414,10 @@ if (isset($_POST['btnVoltar'])) {
             });
         }
     </script>
+    <!-- Alertas fim -->
 
-    <script>
-        let inputs = document.getElementsByClassName('input-form');
-        for (let input of inputs) {
-            input.addEventListener("blur", function() {
-                if (input.value.trim() != "") {
-                    input.classList.add("has-val");
-                } else {
-                    input.classList.remove("has-val");
-                }
-            });
-        }
-    </script>
+    <!-- animação do form -->
+    <script src="../src/scripts/formularios/animation.js"></script>
 </body>
 
 </html>

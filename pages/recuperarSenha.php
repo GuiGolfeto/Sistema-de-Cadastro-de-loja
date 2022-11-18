@@ -1,6 +1,6 @@
-<?php 
+<?php
 if (session_status() !== PHP_SESSION_ACTIVE) {
-	session_start();
+    session_start();
 }
 ?>
 <!DOCTYPE html>
@@ -53,18 +53,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
     </div>
 
     <!-- animação do form -->
-    <script>
-        let inputs = document.getElementsByClassName('input-form');
-        for (let input of inputs) {
-            input.addEventListener("blur", function() {
-                if (input.value.trim() != "") {
-                    input.classList.add("has-val");
-                } else {
-                    input.classList.remove("has-val");
-                }
-            });
-        }
-    </script>
+    <script src="../src/scripts/formularios/animation.js"></script>
 
 </body>
 

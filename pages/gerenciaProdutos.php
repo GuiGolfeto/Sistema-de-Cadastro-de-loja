@@ -94,7 +94,7 @@ if (isset($_POST['btnVoltar'])) {
 						$arqProdutos = '../server/produtos.json';
 						$arqProdutos = file_get_contents($arqProdutos);
 						$arqProdutos = json_decode($arqProdutos, true);
-						
+
 						foreach ($arqProdutos as $key => $value) {
 							if ($_SESSION['nome'] == $value['loja']) {
 								$validateLoop = true;
@@ -173,7 +173,7 @@ if (isset($_POST['btnVoltar'])) {
 		<!--/ tabs -->
 	</div>
 
-	<!-- Script cadastro loja erro -->
+	<!-- Alertas começo -->
 	<script>
 		if (CadastroProdutoError == true) {
 			Swal.fire({
@@ -183,8 +183,6 @@ if (isset($_POST['btnVoltar'])) {
 			});
 		}
 	</script>
-
-	<!-- Script cadastro loja erro -->
 	<script>
 		if (cadastroProdutoSuccess == true) {
 			Swal.fire({
@@ -193,7 +191,6 @@ if (isset($_POST['btnVoltar'])) {
 			});
 		}
 	</script>
-
 	<script>
 		if (exclusaoSuccess == true) {
 			Swal.fire({
@@ -202,7 +199,6 @@ if (isset($_POST['btnVoltar'])) {
 			});
 		}
 	</script>
-
 	<script>
 		if (exclusaoErro == true) {
 			Swal.fire({
@@ -212,20 +208,10 @@ if (isset($_POST['btnVoltar'])) {
 			});
 		}
 	</script>
+	<!-- Alertas fim -->
 
-
-	<script>
-		let inputs = document.getElementsByClassName('input-form');
-		for (let input of inputs) {
-			input.addEventListener("blur", function() {
-				if (input.value.trim() != "") {
-					input.classList.add("has-val");
-				} else {
-					input.classList.remove("has-val");
-				}
-			});
-		}
-	</script>
+	<!-- animação do form -->
+	<script src="../src/scripts/formularios/animation.js"></script>
 </body>
 
 </html>
