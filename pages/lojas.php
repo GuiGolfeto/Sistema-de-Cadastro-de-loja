@@ -24,6 +24,7 @@ if (isset($_SESSION['failSessionGerencia'])) {
     <link rel="stylesheet" href="../css//produtos/cardLojas.css">
     <link rel="stylesheet" type="text/css" href="../css/main.css">
     <link rel="stylesheet" href="../css/produtos/navbar.css">
+    <link rel="stylesheet" href="../css/elements/buttonOne.css">
 
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -76,12 +77,12 @@ if (isset($_SESSION['failSessionGerencia'])) {
                     echo "<div class='card card-1'>";
                     echo "<div class='card__icon'><i class='icon-shopping-cart'></i></div>";
                     echo "<h2 class='card__title'>" . $nomeLoja . "</h2>";
-                    echo "<p class='card__apply'><form class='login-form' method='post' style='padding-top: 115px;'><button class='login-form-btn' name='btnProd' id='btnProd'>Ver produtos</button></form></p>";
+                    echo "<p class='card__apply'><form class='login-form' method='post' style='padding-top: 115px;'><button name='btnProd' id='btnProd'>Ver produtos</button></form></p>";
                     echo "</div>";
                 }
                 if (isset($_POST['btnProd'])) {
                     $_SESSION['nomeDaLoja'] = $nomeLoja;
-                    header("Refresh: 1, url=./produtos.php");
+                    header("Refresh: 0, url=./produtos.php");
                 }
             } else {
                 echo "<span class='login-form-title'>Não há lojas cadastrados!</span>";
