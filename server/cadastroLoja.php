@@ -12,7 +12,7 @@ if (isset($_POST['btnLoja'])) {
         $arquivo = json_decode($arquivo, true);
         array_push($arquivo, $lojas);
 
-        $json = json_encode($arquivo);
+        $json = json_encode(array_values($arquivo));
         if (file_put_contents("lojas.json", $json)) {
             $_SESSION['cadastroLojaSuccess'] = true;
             header("Refresh: 1, url=../pages/gerenciaCadastros.php");
@@ -24,7 +24,7 @@ if (isset($_POST['btnLoja'])) {
 
         $lojas = array(0 => $lojas);
 
-        $json = json_encode($lojas);
+        $json = json_encode(array_values($lojas));
         if (file_put_contents("lojas.json", $json)) {
             $_SESSION['cadastroLojaSuccess'] = true;
             header("Refresh: 1, url=../pages/gerenciaCadastros.php");

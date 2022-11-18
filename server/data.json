@@ -2,7 +2,7 @@
     {
         "nomeCompleto": "Guilherme Golfeto",
         "email": "ggfguigolfeto@gmail.com",
-        "passwd": "827ccb0eea8a706c4c34a16891f84e7b",
+        "passwd": "e10adc3949ba59abbe56e057f20f883e",
         "cidade": "mirandopolis",
         "estado": "SP",
         "cep": "16800-000",
@@ -11,25 +11,14 @@
         "nivel": "1"
     },
     {
-        "nomeCompleto": "james",
-        "email": "james@james.com",
+        "nomeCompleto": "kakinha",
+        "email": "kakinha123@kakinha.com",
         "passwd": "e10adc3949ba59abbe56e057f20f883e",
         "cidade": "mirandopolis",
         "estado": "SP",
         "cep": "16800-000",
-        "nasc": "2222-02-22",
-        "sexo": "Feminino",
+        "nasc": "2003-05-09",
+        "sexo": "Masculino",
         "nivel": "2"
-    },
-    {
-        "nomeCompleto": "adm",
-        "email": "adm@adm.adm",
-        "passwd": "827ccb0eea8a706c4c34a16891f84e7b",
-        "cidade": "mirandopolis",
-        "estado": "SP",
-        "cep": "16800-000",
-        "nasc": "2222-02-22",
-        "sexo": "adm",
-        "nivel": "1"
     }
 ]

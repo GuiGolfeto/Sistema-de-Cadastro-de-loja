@@ -20,7 +20,7 @@ if (isset($_POST['btnExcluir'])) {
     }
 
     if (isset($valid)) {
-        $json = json_encode($arqProdutos);
+        $json = json_encode(array_values($arqProdutos));
         if (file_put_contents("produtos.json", $json)) {
             $_SESSION['exclusaoSuccess'] = true;
             header("Refresh: 1, url=../pages/gerenciaProdutos.php");

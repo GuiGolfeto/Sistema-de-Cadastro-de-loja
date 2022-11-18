@@ -21,7 +21,7 @@ if (isset($_POST['btn'])) {
 		if (!isset($_SESSION['emailIgual'])) {
 			array_push($arquivo, $data);
 
-			$json = json_encode($arquivo);
+			$json = json_encode(array_values($arquivo));
 			if (file_put_contents("data.json", $json)) {
 				$_SESSION['cadastroAdmSuccess'] = true;
 				header("Refresh: 1, url=../pages/gerenciaCadastros.php");
@@ -34,7 +34,7 @@ if (isset($_POST['btn'])) {
 
 		$data = array(0 => $data);
 
-		$json = json_encode($data);
+		$json = json_encode(array_values($data));
 		if (file_put_contents("data.json", $json)) {
 			$_SESSION['cadastroAdmSuccess'] = true;
 			header("Refresh: 1, url=../pages/gerenciaCadastros.php");

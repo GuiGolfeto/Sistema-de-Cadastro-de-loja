@@ -30,7 +30,7 @@ if (isset($_POST['btnExcluir'])) {
         }
 
         if (isset($validUser)) {
-            $json = json_encode($arqUsers);
+            $json = json_encode(array_values($arqUsers));
             if (file_put_contents("data.json", $json)) {
                 $_SESSION['exclusaoSuccess'] = true;
                 header("Refresh: 1, url=../pages/gerenciaCadastros.php");
@@ -41,7 +41,7 @@ if (isset($_POST['btnExcluir'])) {
         }
 
         if (isset($validLoja)) {
-            $json = json_encode($arqLojas);
+            $json = json_encode(array_values($arqLojas));
             if (file_put_contents("lojas.json", $json)) {
                 $_SESSION['exclusaoSuccess'] = true;
                 header("Refresh: 1, url=../pages/gerenciaCadastros.php");

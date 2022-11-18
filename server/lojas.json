@@ -1,1 +1,30 @@
-[{"nomeLoja":"Atleticana TDS","emailGerente":"altleticaTDS@gmail.com","passwd":"827ccb0eea8a706c4c34a16891f84e7b","nivel":"3","estado":"AC"},{"nomeLoja":"Atleticana Publicidade e Propaganda","emailGerente":"altleticaPP@gmail.com","passwd":"827ccb0eea8a706c4c34a16891f84e7b","nivel":"3","estado":"AC"},{"nomeLoja":"Americanas","emailGerente":"americanas@gmail.com","passwd":"827ccb0eea8a706c4c34a16891f84e7b","nivel":"3","estado":"MS"},{"nomeLoja":"Magazine Luiza","emailGerente":"magalu@magalu.com","passwd":"e10adc3949ba59abbe56e057f20f883e","nivel":"3","estado":"SP"}]
+[
+    {
+        "nomeLoja": "Atleticana TDS",
+        "emailGerente": "altleticaTDS@gmail.com",
+        "passwd": "827ccb0eea8a706c4c34a16891f84e7b",
+        "nivel": "3",
+        "estado": "AC"
+    },
+    {
+        "nomeLoja": "Atleticana Publicidade e Propaganda",
+        "emailGerente": "altleticaPP@gmail.com",
+        "passwd": "827ccb0eea8a706c4c34a16891f84e7b",
+        "nivel": "3",
+        "estado": "AC"
+    },
+    {
+        "nomeLoja": "Americanas",
+        "emailGerente": "americanas@gmail.com",
+        "passwd": "827ccb0eea8a706c4c34a16891f84e7b",
+        "nivel": "3",
+        "estado": "MS"
+    },
+    {
+        "nomeLoja": "Magazine Luiza",
+        "emailGerente": "magalu@magalu.com",
+        "passwd": "e10adc3949ba59abbe56e057f20f883e",
+        "nivel": "3",
+        "estado": "SP"
+    }
+]
