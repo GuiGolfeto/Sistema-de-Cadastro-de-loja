@@ -25,6 +25,7 @@ if (isset($_SESSION['failSessionGerencia'])) {
     <link rel="stylesheet" type="text/css" href="../css/main.css">
     <link rel="stylesheet" href="../css/produtos/navbar.css">
     <link rel="stylesheet" href="../css//produtos/cardProdutos.css">
+    <link rel="stylesheet" href="../css/elements/loader.css">
 
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -34,9 +35,8 @@ if (isset($_SESSION['failSessionGerencia'])) {
 </head>
 
 <body>
-
     <!-- navbar -->
-    <div class="nav">
+    <div class="nav" id="tudo_page" style="display:none">
         <input type="checkbox" id="nav-check">
         <div class="nav-header">
             <div class="nav-title">
@@ -64,9 +64,9 @@ if (isset($_SESSION['failSessionGerencia'])) {
     </div>
 
 
-    <div class="container">
+    <div class="container" id="tudo_page" style="display:none">
         <span class="login-form-title" style="margin-left: 415px;">
-            <?php 
+            <?php
             echo $_SESSION['nomeDaLoja'];
             ?>
         </span>
