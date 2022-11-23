@@ -2,22 +2,44 @@
     {
         "nomeCompleto": "Guilherme Golfeto",
         "email": "ggfguigolfeto@gmail.com",
-        "passwd": "827ccb0eea8a706c4c34a16891f84e7b",
-        "cidade": "mirandopolis",
-        "estado": "SP",
-        "cep": "16800-000",
-        "nasc": "2003-05-09",
-        "sexo": "Masculino",
-        "nivel": "1"
-    },
-    {
-        "nomeCompleto": "kakinha",
-        "email": "kakinha123@kakinha.com",
         "passwd": "e10adc3949ba59abbe56e057f20f883e",
         "cidade": "mirandopolis",
         "estado": "SP",
         "cep": "16800-000",
         "nasc": "2003-05-09",
+        "sexo": "Masculino",
+        "nivel": "2"
+    },
+    {
+        "nomeCompleto": "DefaultADM",
+        "email": "adm@adm.com",
+        "passwd": "827ccb0eea8a706c4c34a16891f84e7b",
+        "cidade": "adm",
+        "estado": "adm",
+        "cep": "99999-999",
+        "nasc": "0000-00-00",
+        "sexo": "adm",
+        "nivel": "1"
+    },
+    {
+        "nomeCompleto": "kakinha",
+        "email": "kakinha@kakinha.com",
+        "passwd": "e10adc3949ba59abbe56e057f20f883e",
+        "cidade": "Ara\u00e7atuba",
+        "estado": "SP",
+        "cep": "16800-000",
+        "nasc": "1111-11-11",
+        "sexo": "Masculino",
+        "nivel": "2"
+    },
+    {
+        "nomeCompleto": "thiago",
+        "email": "thiago@ventura.com",
+        "passwd": "e10adc3949ba59abbe56e057f20f883e",
+        "cidade": "Tab\u00e3o",
+        "estado": "PB",
+        "cep": "16800-000",
+        "nasc": "1111-11-11",
         "sexo": "Masculino",
         "nivel": "2"
     }

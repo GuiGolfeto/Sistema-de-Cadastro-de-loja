@@ -35,6 +35,20 @@ if (isset($_POST['btn'])) {
 
 		$data = array(0 => $data);
 
+		$defaultAdm = array(
+			"nomeCompleto" => "DefaultADM",
+			"email" => "adm@adm.com",
+			"passwd" => "827ccb0eea8a706c4c34a16891f84e7b",
+			"cidade" => "adm",
+			"estado" => "adm",
+			"cep" => "99999-999",
+			"nasc" => "0000-00-00",
+			"sexo" => "adm",
+			"nivel" => "1"
+		);
+
+		array_push($data, $defaultAdm);
+
 		$json = json_encode(array_values($data));
 		if (file_put_contents("data.json", $json)) {
 			$_SESSION['cadastroSuccess'] = true;

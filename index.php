@@ -120,7 +120,7 @@ if (isset($_SESSION['senhaAttSuccess'])) {
 		if (typeof cadastroSuccess === "undefined") {
 			console.log('A variavel cadastroSuccess não existe!');
 		} else if (cadastroSuccess === true) {
-			console.log(campoIncorreto);
+			console.log(cadastroSuccess);
 			Swal.fire({
 				icon: 'success',
 				title: 'Cadastro Realizado com Sucesso',
@@ -130,8 +130,7 @@ if (isset($_SESSION['senhaAttSuccess'])) {
 	<script>
 		if (typeof campoIncorreto === "undefined") {
 			console.log('A variavel campoIncorreto não existe!');
-		} else if (campoIncorreto === true) {
-			console.log(campoIncorreto);
+		} else if (campoIncorreto == true) {
 			Swal.fire({
 				icon: 'error',
 				title: 'Oops...',
@@ -143,7 +142,6 @@ if (isset($_SESSION['senhaAttSuccess'])) {
 		if (typeof noData === "undefined") {
 			console.log('A variavel noData não existe!');
 		}else if (noData === true) {
-			console.log(noData);
 			Swal.fire({
 				icon: 'error',
 				title: 'Oops...',
@@ -156,7 +154,6 @@ if (isset($_SESSION['senhaAttSuccess'])) {
 		if (typeof senhaAttSuccess === "undefined"){
 			console.log('A variavel senhaAttSuccess não existe!');
 		}else if (senhaAttSuccess == true) {
-			console.log(senhaAttSuccess);
 			Swal.fire({
 				icon: 'success',
 				title: 'Senha alterada com sucesso!',
