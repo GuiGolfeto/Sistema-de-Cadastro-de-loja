@@ -21,10 +21,11 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 - [x] Pagina para recuperação de senha;
 - [x] Cadastro de Lojas;
 - [x] Pagina de Lojas;
-- [ ] Pagina de Produtos;
-- [ ] Pagina de gerenciamento e cadastro de produtos;
-- [ ] Banco de dados em json para armazenar os produtos;
-- [ ] Layout da pagina de produtos;
+- [x] Pagina de Produtos;
+- [x] Pagina de gerenciamento e cadastro de produtos;
+- [x] Banco de dados em json para armazenar os produtos;
+- [x] Layout da pagina de produtos;
+- [ ] Fazer Revisão do codigo;
 
 ## 💻 Pré-requisitos
 
@@ -40,12 +41,12 @@ Para clonar o <Sistema>, siga estas etapas:
 
 Linux e macOS:
 
-git clone https://github.com/GuiGolfeto/Projeto-Final-PHP.git
+git clone https://github.com/GuiGolfeto/Sistema-de-Cadastro-de-loja.git
 
 
 Windows:
 
-git clone https://github.com/GuiGolfeto/Projeto-Final-PHP.git
+git clone https://github.com/GuiGolfeto/Sistema-de-Cadastro-de-loja.git
 
 
 ## 📫 Contribuindo para <Sistema>
@@ -85,4 +86,4 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
   </tr>
 </table>
 
-[⬆ Voltar ao topo](#nome-do-projeto)<br>
+[⬆ Voltar ao topo](#Sistema de cadastro de Lojas e Produtos-do-projeto)<br>
