@@ -27,10 +27,16 @@ if (isset($_SESSION['failSessionGerencia'])) {
     <link rel="stylesheet" href="../css/elements/buttonOne.css">
 
 
+
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="sweetalert2.all.min.js"></script>
-    <script src="sweetalert2.min.js"></script>
-    <link rel="stylesheet" href="sweetalert2.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.11/sweetalert2.min.js" integrity="sha512-bmWnTgJbKAahKJMepeBM13yCyMAel0GedaOFP2WB4dP9dUHlEVvYiM42MMNLgIX2Mn72IfP1TnnpFVpoJ7PI1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.11/sweetalert2.min.js" integrity="sha512-bmWnTgJbKAahKJMepeBM13yCyMAel0GedaOFP2WB4dP9dUHlEVvYiM42MMNLgIX2Mn72IfP1TnnpFVpoJ7PI1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.11/sweetalert2.all.js" integrity="sha512-+0tPlhsgiMzkhKthIz4FQhetcy4YsrQG5fJxAU5QVfH228YEGVAt0SGoTxvt+9/2bjBy8Tp2cTERmUOu3vL5Yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.11/sweetalert2.js" integrity="sha512-OAPFOVKf42/r/THJck860lJL95grhu7y22Ouan+Qw74eCD/gTZ0lpQx2p/c8MkkFo19H7SJfN/F7BJmyqRzq5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.11/sweetalert2.css" integrity="sha512-JzSVRb7c802/njMbV97pjo1wuJAE/6v9CvthGTDxiaZij/TFpPQmQPTcdXyUVucsvLtJBT6YwRb5LhVxX3pQHQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.11/sweetalert2.min.css" integrity="sha512-NvuRGlPf6cHpxQqBGnPe7fPoACpyrjhlSNeXVUY7BZAj1nNhuNpRBq3osC4yr2vswUEuHq2HtCsY2vfLNCndYA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 
 <body>
@@ -77,12 +83,8 @@ if (isset($_SESSION['failSessionGerencia'])) {
                     echo "<div class='card card-1'>";
                     echo "<div class='card__icon'><i class='icon-shopping-cart'></i></div>";
                     echo "<h2 class='card__title'>" . $nomeLoja . "</h2>";
-                    echo "<p class='card__apply'><form class='login-form' method='post' style='padding-top: 115px;'><button name='btnProd' id='btnProd'>Ver produtos</button></form></p>";
+                    echo "<p class='card__apply'><button><a style='text-decoration:none;' href=\"produtos.php?lojaName={$value['nomeLoja']}\">Ver Produtos</a></button></p>";
                     echo "</div>";
-                }
-                if (isset($_POST['btnProd'])) {
-                    $_SESSION['nomeDaLoja'] = $nomeLoja;
-                    header("Refresh: 0, url=./produtos.php");
                 }
             } else {
                 echo "<span class='login-form-title'>Não há lojas cadastrados!</span>";
@@ -93,7 +95,9 @@ if (isset($_SESSION['failSessionGerencia'])) {
 
     <!-- Alerta começo -->
     <script>
-        if (failSession == true) {
+        if (typeof failSession === "undefined") {
+			console.log('A variavel failSession não existe!');
+		}else if (failSession == true) {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',

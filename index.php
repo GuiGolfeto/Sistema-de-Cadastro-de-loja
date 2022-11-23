@@ -36,7 +36,7 @@ if (isset($_SESSION['senhaAttSuccess'])) {
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
 	<title>Login</title>
@@ -46,9 +46,14 @@ if (isset($_SESSION['senhaAttSuccess'])) {
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	<script src="sweetalert2.all.min.js"></script>
-	<script src="sweetalert2.min.js"></script>
-	<link rel="stylesheet" href="sweetalert2.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.11/sweetalert2.min.js" integrity="sha512-bmWnTgJbKAahKJMepeBM13yCyMAel0GedaOFP2WB4dP9dUHlEVvYiM42MMNLgIX2Mn72IfP1TnnpFVpoJ7PI1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.11/sweetalert2.min.js" integrity="sha512-bmWnTgJbKAahKJMepeBM13yCyMAel0GedaOFP2WB4dP9dUHlEVvYiM42MMNLgIX2Mn72IfP1TnnpFVpoJ7PI1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.11/sweetalert2.all.js" integrity="sha512-+0tPlhsgiMzkhKthIz4FQhetcy4YsrQG5fJxAU5QVfH228YEGVAt0SGoTxvt+9/2bjBy8Tp2cTERmUOu3vL5Yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.11/sweetalert2.js" integrity="sha512-OAPFOVKf42/r/THJck860lJL95grhu7y22Ouan+Qw74eCD/gTZ0lpQx2p/c8MkkFo19H7SJfN/F7BJmyqRzq5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.11/sweetalert2.css" integrity="sha512-JzSVRb7c802/njMbV97pjo1wuJAE/6v9CvthGTDxiaZij/TFpPQmQPTcdXyUVucsvLtJBT6YwRb5LhVxX3pQHQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.11/sweetalert2.min.css" integrity="sha512-NvuRGlPf6cHpxQqBGnPe7fPoACpyrjhlSNeXVUY7BZAj1nNhuNpRBq3osC4yr2vswUEuHq2HtCsY2vfLNCndYA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 
 </head>
 
@@ -105,8 +110,17 @@ if (isset($_SESSION['senhaAttSuccess'])) {
 	</div>
 
 	<!-- Alertas começo -->
+	<!-- <script>
+		cadastroSuccess = null;
+		campoIncorreto = null;
+		noData = null;
+		senhaAttSuccess = null;
+	</script> -->
 	<script>
-		if (cadastroSuccess == true) {
+		if (typeof cadastroSuccess === "undefined") {
+			console.log('A variavel cadastroSuccess não existe!');
+		} else if (cadastroSuccess === true) {
+			console.log(campoIncorreto);
 			Swal.fire({
 				icon: 'success',
 				title: 'Cadastro Realizado com Sucesso',
@@ -114,7 +128,10 @@ if (isset($_SESSION['senhaAttSuccess'])) {
 		}
 	</script>
 	<script>
-		if (campoIncorreto == true) {
+		if (typeof campoIncorreto === "undefined") {
+			console.log('A variavel campoIncorreto não existe!');
+		} else if (campoIncorreto === true) {
+			console.log(campoIncorreto);
 			Swal.fire({
 				icon: 'error',
 				title: 'Oops...',
@@ -123,7 +140,10 @@ if (isset($_SESSION['senhaAttSuccess'])) {
 		}
 	</script>
 	<script>
-		if (noData == true) {
+		if (typeof noData === "undefined") {
+			console.log('A variavel noData não existe!');
+		}else if (noData === true) {
+			console.log(noData);
 			Swal.fire({
 				icon: 'error',
 				title: 'Oops...',
@@ -133,7 +153,10 @@ if (isset($_SESSION['senhaAttSuccess'])) {
 		}
 	</script>
 	<script>
-		if (senhaAttSuccess == true) {
+		if (typeof senhaAttSuccess === "undefined"){
+			console.log('A variavel senhaAttSuccess não existe!');
+		}else if (senhaAttSuccess == true) {
+			console.log(senhaAttSuccess);
 			Swal.fire({
 				icon: 'success',
 				title: 'Senha alterada com sucesso!',

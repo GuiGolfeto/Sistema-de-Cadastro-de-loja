@@ -66,9 +66,14 @@ if (isset($_POST['btnVoltar'])) {
 	<script src="../src/scripts/verificação/index.js" defer></script>
 
 	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	<script src="sweetalert2.all.min.js"></script>
-	<script src="sweetalert2.min.js"></script>
-	<link rel="stylesheet" href="sweetalert2.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.11/sweetalert2.min.js" integrity="sha512-bmWnTgJbKAahKJMepeBM13yCyMAel0GedaOFP2WB4dP9dUHlEVvYiM42MMNLgIX2Mn72IfP1TnnpFVpoJ7PI1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.11/sweetalert2.min.js" integrity="sha512-bmWnTgJbKAahKJMepeBM13yCyMAel0GedaOFP2WB4dP9dUHlEVvYiM42MMNLgIX2Mn72IfP1TnnpFVpoJ7PI1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.11/sweetalert2.all.js" integrity="sha512-+0tPlhsgiMzkhKthIz4FQhetcy4YsrQG5fJxAU5QVfH228YEGVAt0SGoTxvt+9/2bjBy8Tp2cTERmUOu3vL5Yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.11/sweetalert2.js" integrity="sha512-OAPFOVKf42/r/THJck860lJL95grhu7y22Ouan+Qw74eCD/gTZ0lpQx2p/c8MkkFo19H7SJfN/F7BJmyqRzq5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.11/sweetalert2.css" integrity="sha512-JzSVRb7c802/njMbV97pjo1wuJAE/6v9CvthGTDxiaZij/TFpPQmQPTcdXyUVucsvLtJBT6YwRb5LhVxX3pQHQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.11/sweetalert2.min.css" integrity="sha512-NvuRGlPf6cHpxQqBGnPe7fPoACpyrjhlSNeXVUY7BZAj1nNhuNpRBq3osC4yr2vswUEuHq2HtCsY2vfLNCndYA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 
 <body>
@@ -175,7 +180,9 @@ if (isset($_POST['btnVoltar'])) {
 
 	<!-- Alertas começo -->
 	<script>
-		if (CadastroProdutoError == true) {
+		if (typeof CadastroProdutoError === "undefined") {
+			console.log('A variavel CadastroProdutoError não existe!');
+		}else if (CadastroProdutoError == true) {
 			Swal.fire({
 				icon: 'error',
 				title: 'Oops...',
@@ -184,7 +191,9 @@ if (isset($_POST['btnVoltar'])) {
 		}
 	</script>
 	<script>
-		if (cadastroProdutoSuccess == true) {
+		if (typeof cadastroProdutoSuccess === "undefined") {
+			console.log('A variavel cadastroProdutoSuccess não existe!');
+		}else if (cadastroProdutoSuccess == true) {
 			Swal.fire({
 				icon: 'success',
 				title: 'Cadastro realizado com sucesso!',
@@ -192,7 +201,9 @@ if (isset($_POST['btnVoltar'])) {
 		}
 	</script>
 	<script>
-		if (exclusaoSuccess == true) {
+		if (typeof exclusaoSuccess === "undefined") {
+			console.log('A variavel exclusaoSuccess não existe!');
+		}else if (exclusaoSuccess == true) {
 			Swal.fire({
 				icon: 'success',
 				title: 'Produto excluido com sucesso!',
@@ -200,7 +211,9 @@ if (isset($_POST['btnVoltar'])) {
 		}
 	</script>
 	<script>
-		if (exclusaoErro == true) {
+		if (typeof exclusaoErro === "undefined") {
+			console.log('A variavel exclusaoErro não existe!');
+		}else if (exclusaoErro == true) {
 			Swal.fire({
 				icon: 'error',
 				title: 'Oops...',
