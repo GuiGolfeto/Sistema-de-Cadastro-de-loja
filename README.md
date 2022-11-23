@@ -86,4 +86,4 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
   </tr>
 </table>
 
-[⬆ Voltar ao topo](#Sistema de cadastro de Lojas e Produtos-do-projeto)<br>
+[⬆ Voltar ao topo](#Sistema-de-Cadastro-de-loja)<br>
