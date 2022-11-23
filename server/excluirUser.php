@@ -15,6 +15,10 @@ if (isset($_POST['btnExcluir'])) {
         $arqLojas = file_get_contents($arqLojas);
         $arqLojas = json_decode($arqLojas, true);
 
+        $arqProd = './produtos.json';
+        $arqProd = file_get_contents($arqProd);
+        $arqProd = json_decode($arqProd, true);
+
         foreach ($arqUsers as $key => $value) {
             if ($emailExluir == $value['email']) {
                 unset($arqUsers[$key]);
@@ -24,8 +28,17 @@ if (isset($_POST['btnExcluir'])) {
 
         foreach ($arqLojas as $key => $value) {
             if ($emailExluir == $value['emailGerente']) {
+                $nameLoja = $value['nomeLoja'];
                 unset($arqLojas[$key]);
                 $validLoja = true;
+            }
+        }
+
+        if (isset($validLoja)){
+            foreach ($arqProd as $key => $value) {
+                if ($nameLoja == $value['loja']) {
+                    unset($arqProd[$key]);
+                }
             }
         }
 
@@ -42,7 +55,8 @@ if (isset($_POST['btnExcluir'])) {
 
         if (isset($validLoja)) {
             $json = json_encode(array_values($arqLojas));
-            if (file_put_contents("lojas.json", $json)) {
+            $jsonProd = json_encode(array_values($arqProd));
+            if (file_put_contents("lojas.json", $json) && file_put_contents("produtos.json", $jsonProd)) {
                 $_SESSION['exclusaoSuccess'] = true;
                 header("Refresh: 1, url=../pages/gerenciaCadastros.php");
             } else {

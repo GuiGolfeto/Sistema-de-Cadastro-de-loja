@@ -93,9 +93,9 @@ if (isset($_POST['btnVoltar'])) {
     <script src="../src/scripts/verificação/index.js" defer type="module"></script>
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/gerenciaCadastros/tabs.css">
-
+    <link rel="stylesheet" href="../css/main.css">
+    
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.6.11/sweetalert2.min.js" integrity="sha512-bmWnTgJbKAahKJMepeBM13yCyMAel0GedaOFP2WB4dP9dUHlEVvYiM42MMNLgIX2Mn72IfP1TnnpFVpoJ7PI1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
